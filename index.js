@@ -13,3 +13,52 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
+class Employee {
+
+    constructor (name, id, email) {
+        this.name = name; 
+        this.id = id;
+        this.email = email;
+    }
+
+    getName(){
+
+    }
+
+    getId(){
+
+    }
+
+    getEmail(){
+
+    }
+
+    getRole(){
+
+    }
+
+}
+
+class Manager extends Employee {
+
+    constructor () {
+        super ()
+    }
+
+}
+
+class Engineer extends Employee {
+
+    constructor () {
+        super ()
+    }
+
+}
+
+class Intern extends Employee {
+
+    constructor () {
+        super ()
+    }
+
+}

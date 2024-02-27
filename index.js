@@ -10,10 +10,10 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
+// Array to store team member objects
 const teamMembers = [];
 
-
+// Initialise function to ask questions about the team manager and then progress to the main menu function.
 function init() {
     inquirer
     .prompt([
@@ -49,6 +49,7 @@ function init() {
     })
 }
 
+//Main menu function to call addAnEngineer, addAnIntern, and finalise functions depending on choice.
 function mainMenu () {
     inquirer
     .prompt([
@@ -78,6 +79,7 @@ function mainMenu () {
     })
 }
 
+//Function to ask about an intern that will be added to the page. Calls the main menu function again on completion.
 function addAnIntern () {
     inquirer
     .prompt ([
@@ -114,6 +116,7 @@ function addAnIntern () {
     })
 }
 
+//Function to ask about an engineer that will be added to the page. Calls the main menu function again on completion.
 function addAnEngineer () {
     inquirer
     .prompt ([
@@ -150,6 +153,8 @@ function addAnEngineer () {
     })
 }
 
+//Function to finalise the program and generate the HTML file. Checks if the output directory exists, and creates it if it doesnt, then recursively calls the finalise function again.
+//Function will then generate the html file using the render function with the teamMembers array passed inside.
 function finalise () {
     if(!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR);
@@ -159,4 +164,5 @@ function finalise () {
     console.log("File created successfully.")
 }}
 
+//Call to initialise the application.
 init();

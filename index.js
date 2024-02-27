@@ -150,5 +150,13 @@ function addAnEngineer () {
     })
 }
 
+function finalise () {
+    if(!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR);
+        finalise(); 
+    }else {
+    fs.writeFileSync(outputPath, render(teamMembers), 'utf-8');
+    console.log("File created successfully.")
+}}
 
 init();
